@@ -1,0 +1,2 @@
+#define CREDPROVHOSTHOOK_API __declspec(dllexport)
+#define CREDPROVHOSTHOOK_API __declspec(dllimport)
