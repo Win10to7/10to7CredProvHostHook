@@ -1,9 +1,6 @@
 # CredProvHostHook
 
 > [!CAUTION]
-> **This repository contains a version of CredProvHostHook from that may 2025 and it is considered unfinished and is not usable in its current state. This repo was made to archive the project's code, use at your own risk.**
-
-> [!CAUTION]
 > **CredProvHostHook was only tested on Windows 10 version 21H2 (VB) and might not work on anything else.**
 
 > [!WARNING]
