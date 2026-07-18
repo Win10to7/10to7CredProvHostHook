@@ -1,0 +1,29 @@
+name: Build and release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: windows-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up MSBuild
+        uses: microsoft/setup-msbuild@v2
+
+      - name: Build CredProvHostHook
+        run: msbuild CredProvHostHook.sln /m /p:Configuration=Release /p:Platform=x64
+
+      - name: Create GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: x64/Release/CredProvHostHook.dll
+          generate_release_notes: true
