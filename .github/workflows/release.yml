@@ -22,8 +22,12 @@ jobs:
       - name: Build CredProvHostHook
         run: msbuild CredProvHostHook.sln /m /p:Configuration=Release /p:Platform=x64
 
+      - name: Package release
+        shell: pwsh
+        run: Compress-Archive -Path x64/Release/* -DestinationPath "CredProvHostHook-${{ github.ref_name }}-x64.zip"
+
       - name: Create GitHub release
         uses: softprops/action-gh-release@v2
         with:
-          files: x64/Release/CredProvHostHook.dll
+          files: CredProvHostHook-${{ github.ref_name }}-x64.zip
           generate_release_notes: true
